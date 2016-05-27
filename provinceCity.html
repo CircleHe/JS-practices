@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>省市集菜单</title>
+</head>
+<body>
+	<h2>省市级下拉菜单</h2>
+	<select id="provinces"  onchange = "changeCity(this.value)">
+		<option value="-1">--请选择--</option>
+	</select>
+	<select id="cities">
+		<option value="-1">--请选择--</option>
+	</select>
+	<script>
+		var ps = ['北京','天津','河北'];
+		var cs = [['东城区','西城区',''],['河东区','和平区',''],['廊坊市','石家庄市','唐山市']];
+		var pSelect = document.getElementById('provinces');
+		var fragment = document.createDocumentFragment();
+		for(var i=0;i<ps.length;i++){
+			var option = document.createElement('option');
+			option.setAttribute('value',i);
+			option.innerHTML = ps[i];
+			fragment.appendChild(option);
+		}
+		pSelect.appendChild(fragment);
+		//添加地级市
+		function changeCity(pno){
+			if(pno==-1){
+				return;
+			}
+
+			//删除下拉框中的已有地级市
+			var cSelect = document.getElementById('cities');
+			while(cSelect.children.length>0){
+				cSelect.removeChild(cSelect.lastElementChild);
+			}
+			//cSelect.innerHTML = '';
+
+			//再添加当前指定省份的地级市	
+			var cityArr = cs[pno];
+			var fragment = document.createDocumentFragment();
+			for(var i=0;i<cs.length;i++){
+				var option = document.createElement('option');
+				option.setAttribute('value',i);
+				option.innerHTML = cityArr[i];
+				fragment.appendChild(option);
+			}
+			cSelect.appendChild(fragment);
+			}
+	</script>
+</body>
+</html>
