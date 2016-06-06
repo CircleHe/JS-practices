@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>imageRolling</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<style type="text/css">
+		#main {
+			overflow: hidden;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="main" style="height:183px;width:740px;">
+		<img src="images/background2.jpg" class="picture" style="height:183px; width:740px; ">
+		<img src="images/background21.jpg" class="picture" style="height:183px; width:740px; ">
+		<img src="images/background22.jpg" class="picture" style="height:183px; width:740px; ">
+	</div>
+	<script type="text/javascript">
+	var index = 0;
+	var mg = $('#main img');
+	var len = mg.length;
+	function play(n){
+		mg.eq(n).fadeIn(100).siblings('.picture').fadeOut(100);
+	}
+	function show(){
+		play(index);
+		index++;
+		if(index==len){
+			index = 0;
+		}
+	}
+	setInterval('show()',3000);
+	</script>
+
+</body>
+</html>
