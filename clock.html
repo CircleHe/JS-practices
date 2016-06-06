@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#clock{
+			width: 300px;
+			height: 300px;
+			margin: 200px auto;
+			border: 1px solid #aaa;
+			border-radius: 50%;
+			position: relative;
+		}
+		.t{
+			position: absolute;
+			left: 150px;
+			transform-origin: left center;
+		}
+		.hour{
+			width: 60px;
+			height: 12px;
+			background: #faa;
+			top: 144px;
+		}
+		.minute{
+			width: 120px;
+			height: 8px;
+			background: #aaf;
+			top: 146px;
+		}
+		.second{
+			width: 145px;
+			height: 6px;
+			background: #afa;
+			top: 147px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<div class="t hour"></div>
+		<div class="t minute"></div>
+		<div class="t second"></div>
+	</div>
+	<script>
+	function drawClock(){
+		var now = new Date();
+		var h = now.getHours() % 12;
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		var hpointer = document.getElementsByClassName('hour')[0];
+		hpointer.style.transform = 'rotate('+(h*30-90)+'deg)';
+		
+		var mpointer = document.getElementsByClassName('minute')[0];
+		mpointer.style.transform = 'rotate('+(m*6-90)+'deg)';
+		
+		var spointer = document.getElementsByClassName('second')[0];
+		spointer.style.transform = 'rotate('+(s*6-90)+'deg)';
+	}
+	drawClock();
+	//周期性定时器
+	window.setInterval(drawClock,1000);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
