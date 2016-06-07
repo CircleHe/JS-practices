@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>0-10随机猜整数</title>
+</head>
+<body>
+<script type="text/javascript">
+	var n = parseInt(Math.random()*(10-0+1)+0);
+	var input = -1;
+	while(input != n){
+		input = prompt("你猜一个0-10的整数：");
+		if (input === 'exit') {
+			console.log('放弃');
+			break;
+		}else{
+			input = parseInt(input);
+			if (input > n) {
+				alert('猜大了');
+			}else if(input < n){
+				alert('猜小了');
+			}else{
+				alert('答对了！');
+			}
+		}
+	}
+</script>
+</body>
+</html>
