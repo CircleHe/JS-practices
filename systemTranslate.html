@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>十进制转二进制</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var bin=[];
+		var num=131;
+		while(num != 0){
+			bin.push(num%2);
+			num = parseInt(num/2);
+		}
+		bin.reverse();
+		document.write(bin.join(''));
+	</script>
+</body>
+</html>
