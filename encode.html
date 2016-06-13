@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>Unicode编码</title>
+
+ </head>
+ <body>
+ <script type="text/javascript">
+ 	var input = prompt('输入信息：');
+ 	var result = [];
+ 	for(var i=0;i<input.length;i++){
+ 		var code = input.charCodeAt(i);
+ 		if (code<10000) {
+ 			var num = parseInt(code);
+ 			num += 10000;
+ 			//不足五位数的Unicode编码先加上10000，再将首字符改为0
+ 			var str = num+'';
+ 			code = 0 + str.substr(1,4);
+ 		}
+ 		result.push(code)
+ 	}
+ 	document.write(input+'的Unicode编码：'+result.join(''));
+ </script>
+ </body>
+ </html>
